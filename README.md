@@ -31,7 +31,7 @@ $ curl -L https://get.rvm.io | bash -s stable
 使用rvm
 
 ```
-$ source /Users/xiaonan/.rvm/scripts/rvm
+$ source /Users/dayku/.rvm/scripts/rvm
 ```
 
 列出ruby可安装版本列表
@@ -69,21 +69,7 @@ $ xcode-select --install
 xcode-select: error: command line tools are already installed, use "Software Update" to install updates
 ```
 
-
-#### 5、设置git仓库全局账号信息
-
-证书文件仓库，代码仓库都要用到git账号
-
-**注意使用以下方式设置用户名和邮箱，在用户名和邮箱上不要加""**
-
-```
-$ git config --global user.email ******
-$ git config --global user.name ******
-```
-
-#### 7、Android项目设定
-
-##### 系统环境配置
+#### 系统环境配置
 ①、安装JDK1.8.0
 
 要保持和项目里使用的JDK版本一致
@@ -95,7 +81,7 @@ $ vi ~/.bash_profile
 ```
 
 ```command
-ANDROID_HOME=/Users/xiaonan/Library/Android/sdk
+ANDROID_HOME=/Users/dayku/Library/Android/sdk
 export ANDROID_HOME
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
@@ -128,67 +114,7 @@ fastlane installation at path:
 fastlane 2.94.0
 ```
 
-### 在iOS项目中初始化fastlane
-
-首先在终端进去项目根目录
-
-然后初始化fastlane
-
-```
-$ fastlane init
-```
-
-初始化时出现4个选项，选4手动设置
-
-```command
-1. 📸  Automate screenshots
-2. 👩‍✈️  Automate beta distribution to TestFlight
-3. 🚀  Automate App Store distribution
-4. 🛠  Manual setup - manually setup your project to automate your tasks
-```
-
-之后初始化命令会自动执行```bundle update```下载项目需要的依赖库
-
-初始化完成后，项目的根目录会多2个文件：Gemfile、Gemfile.lock, Gemfile里面定义了该项目的软件包依赖的相关事项，和Podfile、Podfile.lock类似
-
-在Gemfile中追加cocoapods的软件包依赖
-
-```ruby
-gem "cocoapods", "1.5.0"
-```
-
-修改之后的Gemfile内容
-
-```ruby
-source "https://rubygems.org"
-
-gem "cocoapods", "1.5.0"
-gem "fastlane", "2.94.0"
-```
-
-初始化自动在根目录创建fastlane文件夹及文件
-
-```
-$ cd fastlane && ls
-Appfile            Fastfile
-```
-
-+ Appfile文件记录App的 bundle ID、Apple ID、Team ID三种信息。
-+ Fastfile脚本的核心执行文件.有几个默认的选项，可直接使用。
-
-如果修改了Gemfile执行下面命令，安装并更新项目软件依赖包，可以在执行update前先去把插件pgy的插件安装完，具体参照下面的插件安装步骤
-
-```
-$ bundle update
-```
-
-在新机器上，从git上拉代码后使用以下命令来安装项目软件依赖包
-
-```
-$ bundle install
-```
-
-###  在Android项目中初始化fastlane
+###  初始化fastlane
 
 首先在终端进去项目根目录
 
@@ -201,7 +127,7 @@ $ fastlane init
 期间会询问项目的包名
 
 ```command
-Package Name (com.krausefx.app): com.fanneng.operation
+Package Name (com.krausefx.app): ***.***.***
 ```
 
 询问上传到Google Play需要的json文件路径，直接回车
